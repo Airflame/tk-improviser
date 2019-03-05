@@ -11,7 +11,6 @@ class Window(object):
         self.root.title("pyImprov")
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.synth = Synth()
-
         self.content = ttk.Frame(self.root)
         self.length_label = Label(self.content, text="Set length")
         self.length_text = Text(self.content, height=1, width=14)
@@ -38,7 +37,6 @@ class Window(object):
         self.status_label = Label(self.content)
         self.button = Button(self.content, text="Create", width=16, height=2,
                              command=self.on_click)
-
         self.content.grid(column=0, row=0)
         self.length_label.grid(column=0, row=0)
         self.length_text.insert(END, "30")
