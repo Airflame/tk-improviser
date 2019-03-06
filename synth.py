@@ -11,6 +11,7 @@ from random import *
 class Synth(object):
     def __init__(self):
         self.length = 30
+        self.meter = "4/4"
         self.scale = []
         self.set_scale("Pentatonic", "C")
         self.tempo = 150
@@ -19,6 +20,9 @@ class Synth(object):
 
     def set_length(self, length):
         self.length = int(str(length))
+
+    def set_meter(self, meter):
+        self.meter = str(meter)
 
     def set_scale(self, scale, tonic):
         self.scale = []
@@ -76,7 +80,7 @@ class Synth(object):
             if len(previous_rhythm_measure) > 0 and repeat_rhythm == 1:
                 rhythm_measure = previous_rhythm_measure
             else:
-                rhythm_measure = choice(measures.MEASURES)
+                rhythm_measure = choice(measures.MEASURES[self.meter])
             rhythm.extend(rhythm_measure)
             repeat_melody = randint(1, 3)
             if len(previous_melody_measure) == len(rhythm_measure) and repeat_melody == 1:
